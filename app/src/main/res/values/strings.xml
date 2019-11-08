@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Fynd Twitter</string>
+
+    <string name="permission">You must allow all permissions to proceed!</string>
+    <string name="nointernet">Please make sure your connected to internet</string>
+    <string name="no_users">Loading Users..</string>
+    <string name="add_user">Add User</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_user">Delete User</string>
+
+
+    <string name="twitter_api_key">psWd5beimPTZzFImVt9cQa0mu</string>
+    <string name="twitter_api_secret">UTtljPB5TlX2s2DtYVgnBPsdUk7VSw2YOYw6iAP5xlTzXv1HHf</string>
+</resources>
