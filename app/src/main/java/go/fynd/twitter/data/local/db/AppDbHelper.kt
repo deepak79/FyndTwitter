@@ -12,16 +12,12 @@ constructor(
     val mAppDatabase: AppDatabase
 ) : DbHelper {
 
-    override fun getAllUsers(): Maybe<List<UserBean>> {
-        return mAppDatabase.usersDao().getAllUsers()
+    override fun getLoggedInUser(): Maybe<UserBean> {
+        return mAppDatabase.usersDao().getLoggedInUser()
     }
 
-    override fun deleteUser(userBean: UserBean): Completable {
-        return Completable.fromAction { mAppDatabase.usersDao().deleteUser(userBean) }
-    }
-
-    override fun addUsers(listUserBean: List<UserBean>): Completable {
-        return Completable.fromAction { mAppDatabase.usersDao().addUsers(listUserBean) }
+    override fun deleteLoggedInUser(userBean: UserBean): Completable {
+        return Completable.fromAction { mAppDatabase.usersDao().deleteLoggedInUser(userBean) }
     }
 
     override fun addUser(mUserBean: UserBean): Completable {

@@ -1,21 +1,19 @@
 package go.fynd.twitter.ui.base
 
 import android.annotation.TargetApi
-import android.app.ProgressDialog
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import dagger.android.AndroidInjection
-import go.fynd.twitter.utils.CommonUtils
 import go.fynd.twitter.utils.NetworkUtils
 
 abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppCompatActivity() {
-    private var mProgressDialog: ProgressDialog? = null
     var viewDataBinding: T? = null
         private set
     private var mViewModel: V? = null
@@ -58,12 +56,6 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
         }
     }
 
-    fun hideLoading() {
-        if (mProgressDialog != null && mProgressDialog!!.isShowing) {
-            mProgressDialog!!.cancel()
-        }
-    }
-
     fun performDependencyInjection() {
         AndroidInjection.inject(this)
     }
@@ -75,16 +67,15 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
         }
     }
 
-    fun showLoading() {
-        hideLoading()
-        mProgressDialog = CommonUtils.showLoadingDialog(this)
-    }
-
     private fun performDataBinding() {
         viewDataBinding = DataBindingUtil.setContentView(this, layoutId)
         this.mViewModel = if (mViewModel == null) viewModel else mViewModel
         viewDataBinding!!.setVariable(bindingVariable, mViewModel)
         viewDataBinding!!.executePendingBindings()
+    }
+
+    fun showMessage(message: String?) {
+        Toast.makeText(this, "" + message, Toast.LENGTH_LONG).show()
     }
 }
 

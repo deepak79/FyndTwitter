@@ -9,6 +9,8 @@
     <string name="delete_user">Delete User</string>
 
 
+    <string name="twitter_callback">twittersdk://</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
     <string name="twitter_api_key">psWd5beimPTZzFImVt9cQa0mu</string>
     <string name="twitter_api_secret">UTtljPB5TlX2s2DtYVgnBPsdUk7VSw2YOYw6iAP5xlTzXv1HHf</string>
 </resources>

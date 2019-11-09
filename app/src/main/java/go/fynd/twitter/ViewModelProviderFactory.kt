@@ -3,10 +3,7 @@ package go.fynd.twitter
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import go.fynd.twitter.data.DataManager
-import go.fynd.twitter.ui.detail.DetailViewModel
 import go.fynd.twitter.ui.login.TwitterLoginVM
-import go.fynd.twitter.ui.main.MainViewModel
-import go.fynd.twitter.ui.splash.SplashViewModel
 import go.fynd.twitter.utils.rx.SchedulerProvider
 
 import javax.inject.Inject
@@ -22,18 +19,6 @@ constructor(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
         return when {
-            modelClass.isAssignableFrom(SplashViewModel::class.java) -> SplashViewModel(
-                dataManager,
-                schedulerProvider
-            ) as T
-            modelClass.isAssignableFrom(MainViewModel::class.java) -> MainViewModel(
-                dataManager,
-                schedulerProvider
-            ) as T
-            modelClass.isAssignableFrom(DetailViewModel::class.java) -> DetailViewModel(
-                dataManager,
-                schedulerProvider
-            ) as T
             modelClass.isAssignableFrom(TwitterLoginVM::class.java) -> TwitterLoginVM(
                 dataManager,
                 schedulerProvider

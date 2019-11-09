@@ -4,6 +4,7 @@
     package="go.fynd.twitter">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="go.fynd.twitter.App"
@@ -23,10 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="go.fynd.twitter.ui.main.MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="go.fynd.twitter.ui.detail.DetailActivity"
+            android:name=".ui.webview.TwitterWebViewActivity"
             android:screenOrientation="portrait" />
     </application>
 

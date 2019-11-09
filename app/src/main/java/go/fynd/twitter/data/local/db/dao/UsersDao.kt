@@ -4,22 +4,19 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import io.reactivex.Maybe
 import go.fynd.twitter.model.UserBean
+import io.reactivex.Maybe
 
 @Dao
 interface UsersDao {
     @Query("SELECT * FROM UserBean")
-    fun getAllUsers(): Maybe<List<UserBean>>
-
-    @Insert
-    fun addUsers(users: List<UserBean>)
+    fun getLoggedInUser(): Maybe<UserBean>
 
     @Insert
     fun addUser(user: UserBean)
 
     @Delete
-    fun deleteUser(user :UserBean)
+    fun deleteLoggedInUser(user: UserBean)
 
     @Query("DELETE FROM UserBean")
     fun nukeTable()

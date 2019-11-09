@@ -5,9 +5,11 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
 import go.fynd.twitter.model.UserBean
+import twitter4j.User
 
 object Converter {
     @TypeConverter
+    @JvmStatic
     fun stringToJSON(value: String): JSONObject {
         return Gson().fromJson(value, object : TypeToken<JSONObject>() {
 
@@ -15,12 +17,14 @@ object Converter {
     }
 
     @TypeConverter
+    @JvmStatic
     fun JSONToString(list: JSONObject): String {
         return Gson().toJson(list)
     }
 
     @TypeConverter
-    fun stringToAppointment(json: String): UserBean {
+    @JvmStatic
+    fun stringToUserBean(json: String): UserBean {
         val gson = Gson()
         val type = object : TypeToken<UserBean>() {
 
@@ -29,7 +33,8 @@ object Converter {
     }
 
     @TypeConverter
-    fun appointmentToString(list: UserBean): String {
+    @JvmStatic
+    fun userBeanToString(list: UserBean): String {
         val gson = Gson()
         val type = object : TypeToken<UserBean>() {
 

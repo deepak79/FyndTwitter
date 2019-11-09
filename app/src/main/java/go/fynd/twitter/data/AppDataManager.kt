@@ -1,11 +1,13 @@
 package go.fynd.twitter.data
 
+import go.fynd.twitter.data.local.db.DbHelper
+import go.fynd.twitter.data.prefs.PrefsHelper
+import go.fynd.twitter.data.remote.ApiHelper
+import go.fynd.twitter.model.TweetBean
+import go.fynd.twitter.model.UserBean
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
-import go.fynd.twitter.data.local.db.DbHelper
-import go.fynd.twitter.data.remote.ApiHelper
-import go.fynd.twitter.model.UserBean
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -13,26 +15,55 @@ import javax.inject.Singleton
 class AppDataManager @Inject
 constructor(
     private val mDbHelper: DbHelper,
-    private val mApiHelper: ApiHelper
+    private val mApiHelper: ApiHelper,
+    private val mPrefsHelper: PrefsHelper
 ) : DataManager {
 
-    override fun getAllUsers(): Maybe<List<UserBean>> {
-        return mDbHelper.getAllUsers()
+    override fun getLoggedInUser(): Maybe<UserBean> {
+        return mDbHelper.getLoggedInUser()
     }
 
-    override fun deleteUser(userBean: UserBean): Completable {
-        return mDbHelper.deleteUser(userBean)
-    }
-
-    override fun addUsers(listUserBean: List<UserBean>): Completable {
-        return mDbHelper.addUsers(listUserBean)
-    }
-
-    override fun getAllUsersNW(): Single<List<UserBean>> {
-        return mApiHelper.getAllUsersNW()
+    override fun deleteLoggedInUser(userBean: UserBean): Completable {
+        return mDbHelper.deleteLoggedInUser(userBean)
     }
 
     override fun addUser(mUserBean: UserBean): Completable {
         return mDbHelper.addUser(mUserBean)
+    }
+
+    override fun getTweets(): Single<List<TweetBean>> {
+        return mApiHelper.getTweets()
+    }
+
+    override fun setConsumerKey(token: String) {
+        mPrefsHelper.setConsumerKey(token)
+    }
+
+    override fun getConsumerKey(): String {
+        return mPrefsHelper.getConsumerKey()
+    }
+
+    override fun setConsumerSecret(secretKey: String) {
+        mPrefsHelper.setConsumerSecret(secretKey)
+    }
+
+    override fun getConsumerSecret(): String {
+        return mPrefsHelper.getConsumerSecret()
+    }
+
+    override fun setUserAccessToken(token: String) {
+        mPrefsHelper.setUserAccessToken(token)
+    }
+
+    override fun getUserAccessToken(): String {
+        return mPrefsHelper.getUserAccessToken()
+    }
+
+    override fun setUserSecretKey(secretKey: String) {
+        mPrefsHelper.setUserSecretKey(secretKey)
+    }
+
+    override fun getUserSecretKey(): String {
+        return mPrefsHelper.getUserSecretKey()
     }
 }

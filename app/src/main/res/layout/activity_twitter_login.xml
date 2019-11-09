@@ -21,13 +21,13 @@
             android:id="@+id/gp_login"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="et_password,button,et_email,tv_password,tv_login,img_logo,tv_username" />
+            android:visibility="gone"
+            app:constraint_referenced_ids="btn_login,img_logo" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/gp_splash"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
             app:constraint_referenced_ids="progressBar,img_splash_logo" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -45,11 +45,11 @@
             app:layout_constraintGuide_percent="0.85" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gl_hoz_15"
+            android:id="@+id/gl_hoz_35"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.35" />
 
 
         <ImageView
@@ -81,85 +81,17 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_twitter_white"
-            app:layout_constraintStart_toEndOf="@id/gl_vert_15"
-            app:layout_constraintTop_toBottomOf="@id/gl_hoz_15" />
-
-        <TextView
-            android:id="@+id/tv_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/gl_vert_15"
-            app:layout_constraintTop_toBottomOf="@id/img_logo" />
-
-        <TextView
-            android:id="@+id/tv_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Username"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/gl_vert_15"
-            app:layout_constraintTop_toBottomOf="@id/tv_login" />
-
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/et_background"
-            android:fontFamily="sans-serif-light"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@id/gl_vert_85"
-            app:layout_constraintStart_toEndOf="@id/gl_vert_15"
-            app:layout_constraintTop_toBottomOf="@id/tv_username" />
-
-        <TextView
-            android:id="@+id/tv_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Password"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/gl_vert_15"
-            app:layout_constraintTop_toBottomOf="@id/et_email" />
-
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/et_background"
-            android:fontFamily="sans-serif-light"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@id/gl_vert_85"
-            app:layout_constraintStart_toEndOf="@id/gl_vert_15"
-            app:layout_constraintTop_toBottomOf="@id/tv_password" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"  />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginTop="50dp"
-            android:background="@drawable/btn_background"
+            android:background="@drawable/btn_selector"
             android:fontFamily="sans-serif-medium"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
@@ -169,6 +101,22 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@id/gl_vert_85"
             app:layout_constraintStart_toStartOf="@id/gl_vert_15"
-            app:layout_constraintTop_toBottomOf="@id/et_password" />
+            app:layout_constraintTop_toBottomOf="@id/img_logo" />
+        <Button
+            android:id="@+id/btn_tweets"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_selector"
+            android:fontFamily="sans-serif-medium"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:text="Get Tweets"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/gl_vert_85"
+            app:layout_constraintStart_toStartOf="@id/gl_vert_15"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

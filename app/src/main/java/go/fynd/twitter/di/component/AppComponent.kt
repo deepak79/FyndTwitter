@@ -7,12 +7,11 @@ import dagger.android.AndroidInjectionModule
 import go.fynd.twitter.App
 import go.fynd.twitter.di.builder.ActivityBuilder
 import go.fynd.twitter.di.module.AppModule
-import go.fynd.twitter.di.module.NetworkModule
 
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class, AppModule::class, ActivityBuilder::class,NetworkModule::class])
+@Component(modules = [AndroidInjectionModule::class, AppModule::class, ActivityBuilder::class])
 interface AppComponent {
     fun inject(app: App)
 
@@ -21,9 +20,6 @@ interface AppComponent {
 
         @BindsInstance
         fun application(application: Application): Builder
-
-        @BindsInstance
-        fun networkModule(networkModule: NetworkModule): Builder
 
         fun build(): AppComponent
     }

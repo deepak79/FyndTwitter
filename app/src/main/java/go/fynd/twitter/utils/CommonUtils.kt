@@ -2,15 +2,17 @@ package go.fynd.twitter.utils
 
 import android.Manifest
 import android.app.Activity
-import android.app.ProgressDialog
 import android.content.Context
 import android.content.pm.PackageManager
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.util.Patterns
 import android.widget.Toast
 import androidx.core.content.PermissionChecker.checkSelfPermission
-import go.fynd.twitter.R
+import org.apache.commons.codec.binary.Base64
+import java.io.UnsupportedEncodingException
+import java.security.GeneralSecurityException
+import javax.crypto.Mac
+import javax.crypto.SecretKey
+import javax.crypto.spec.SecretKeySpec
 
 
 object CommonUtils {
@@ -34,19 +36,6 @@ object CommonUtils {
         } else PackageManager.PERMISSION_GRANTED == checkSelfPermission(context, perm)
     }
 
-    fun showLoadingDialog(context: Context): ProgressDialog {
-        val progressDialog = ProgressDialog(context)
-        progressDialog.show()
-        if (progressDialog.window != null) {
-            progressDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        }
-        progressDialog.setContentView(R.layout.progress_dialog)
-        progressDialog.isIndeterminate = true
-        progressDialog.setCancelable(false)
-        progressDialog.setCanceledOnTouchOutside(false)
-        return progressDialog
-    }
-
     fun makeText(context: Context?, message: String) {
         if (context == null) {
             return
@@ -57,6 +46,23 @@ object CommonUtils {
             }
         }
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
+
+    @Throws(GeneralSecurityException::class, UnsupportedEncodingException::class)
+    fun computeSignature(baseString: String, keyString: String): String {
+
+        var secretKey: SecretKey? = null
+
+        val keyBytes = keyString.toByteArray()
+        secretKey = SecretKeySpec(keyBytes, "HmacSHA1")
+
+        val mac = Mac.getInstance("HmacSHA1")
+
+        mac.init(secretKey)
+
+        val text = baseString.toByteArray()
+
+        return String(Base64.encodeBase64(mac.doFinal(text))).trim { it <= ' ' }
     }
 
 }
