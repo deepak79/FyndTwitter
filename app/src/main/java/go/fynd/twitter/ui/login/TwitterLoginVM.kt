@@ -2,8 +2,6 @@ package go.fynd.twitter.ui.login
 
 import androidx.lifecycle.MutableLiveData
 import go.fynd.twitter.data.DataManager
-import go.fynd.twitter.data.remote.ApiHelper
-import go.fynd.twitter.model.TweetBean
 import go.fynd.twitter.model.UserBean
 import go.fynd.twitter.ui.base.BaseViewModel
 import go.fynd.twitter.utils.rx.SchedulerProvider
@@ -13,7 +11,6 @@ class TwitterLoginVM(dataManager: DataManager, schedulerProvider: SchedulerProvi
     BaseViewModel<TwitterLoginNavigator>(dataManager, schedulerProvider) {
 
     var mUserBeanLiveData: MutableLiveData<UserBean> = MutableLiveData()
-    var mListTweetBeanLiveData: MutableLiveData<List<TweetBean>> = MutableLiveData()
 
     fun init(consumerKey: String, consumerSecret: String) {
         dataManager.setConsumerKey(consumerKey)
@@ -56,31 +53,6 @@ class TwitterLoginVM(dataManager: DataManager, schedulerProvider: SchedulerProvi
                         navigator.onHandleError("You have been successfully logged in!")
                     } else {
                         mUserBeanLiveData.postValue(null)
-                    }
-                }, { throwable ->
-                    navigator.onHandleError(throwable.message!!)
-                })
-        )
-    }
-
-    fun getTweets() {
-        setIsLoading(true)
-        compositeDisposable.add(
-            ApiHelper.create().getTweets()
-                .subscribeOn(schedulerProvider.io())
-                .observeOn(schedulerProvider.ui())
-                .doOnEvent { data, throwable ->
-                    if (data == null && throwable == null) {
-                        setIsLoading(false)
-                        mListTweetBeanLiveData.postValue(null)
-                    }
-                }
-                .subscribe({ tweets ->
-                    setIsLoading(false)
-                    if (tweets != null) {
-                        mListTweetBeanLiveData.postValue(tweets)
-                    } else {
-                        mListTweetBeanLiveData.postValue(null)
                     }
                 }, { throwable ->
                     navigator.onHandleError(throwable.message!!)

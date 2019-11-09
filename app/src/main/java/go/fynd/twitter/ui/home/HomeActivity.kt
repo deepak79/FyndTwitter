@@ -35,7 +35,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeVM>(),
         get() = BR.viewModel
 
     override val layoutId: Int
-        get() = R.layout.activity_twitter_login
+        get() = R.layout.activity_home
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

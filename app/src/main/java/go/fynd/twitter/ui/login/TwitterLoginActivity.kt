@@ -3,7 +3,6 @@ package go.fynd.twitter.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -24,6 +23,7 @@ import go.fynd.twitter.ViewModelProviderFactory
 import go.fynd.twitter.databinding.ActivityTwitterLoginBinding
 import go.fynd.twitter.model.UserBean
 import go.fynd.twitter.ui.base.BaseActivity
+import go.fynd.twitter.ui.home.HomeActivity
 import go.fynd.twitter.ui.webview.TwitterWebViewActivity
 import go.fynd.twitter.utils.AppConstants.Companion.PERMISSIONS
 import go.fynd.twitter.utils.CommonUtils
@@ -74,9 +74,8 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
         init()
         setListeners()
         observeIsLoggedIn()
-        observeTweets()
         Handler().postDelayed({
-            showHideSplash(false)
+            viewModel.getLoggedInUser()
         }, 1500)
         supportActionBar?.hide()
     }
@@ -89,18 +88,7 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
         viewModel.mUserBeanLiveData.observe(this, Observer {
             showHideSplash(false)
             if (it != null) {
-                showMessage(it.mName)
-            } else {
-                showMessage("Please login to continue")
-            }
-        })
-    }
-
-    private fun observeTweets() {
-        viewModel.mListTweetBeanLiveData.observe(this, Observer {
-            showHideSplash(false)
-            if (it != null) {
-                Log.e("@@@@@", "" + it[0].text)
+                startActivity(Intent(this, HomeActivity::class.java))
             } else {
                 showMessage("Please login to continue")
             }
