@@ -2,6 +2,7 @@ package go.fynd.twitter.ui.login
 
 import androidx.lifecycle.MutableLiveData
 import go.fynd.twitter.data.DataManager
+import go.fynd.twitter.data.remote.ApiHelper
 import go.fynd.twitter.model.TweetBean
 import go.fynd.twitter.model.UserBean
 import go.fynd.twitter.ui.base.BaseViewModel
@@ -65,7 +66,7 @@ class TwitterLoginVM(dataManager: DataManager, schedulerProvider: SchedulerProvi
     fun getTweets() {
         setIsLoading(true)
         compositeDisposable.add(
-            dataManager.getTweets()
+            ApiHelper.create().getTweets()
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.ui())
                 .doOnEvent { data, throwable ->

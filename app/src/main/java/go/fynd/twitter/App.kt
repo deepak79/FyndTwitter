@@ -22,10 +22,10 @@ class App : Application(), HasActivityInjector {
         super.onCreate()
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
-
         DaggerAppComponent.builder()
             .application(this)
             .build()
             .inject(this)
     }
+
 }

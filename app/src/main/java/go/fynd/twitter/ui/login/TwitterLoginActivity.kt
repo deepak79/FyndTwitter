@@ -27,6 +27,7 @@ import go.fynd.twitter.ui.base.BaseActivity
 import go.fynd.twitter.ui.webview.TwitterWebViewActivity
 import go.fynd.twitter.utils.AppConstants.Companion.PERMISSIONS
 import go.fynd.twitter.utils.CommonUtils
+import go.fynd.twitter.utils.CustomInterceptor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -78,9 +79,6 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
             showHideSplash(false)
         }, 1500)
         supportActionBar?.hide()
-        binding!!.btnTweets.setOnClickListener {
-            viewModel.getTweets()
-        }
     }
 
     private fun setListeners() {
@@ -210,6 +208,12 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
     private fun showData(accessToken: AccessToken) {
         try {
             val user = mTwitter.showUser(mTwitter.id)
+            CustomInterceptor.setSignInterceptor(
+                TWITTER_CONSUMER_KEY,
+                TWITTER_CONSUMER_SECRET,
+                accessToken.token,
+                accessToken.tokenSecret
+            )
             viewModel.addUser(
                 UserBean(
                     mUserId = user.id.toString(),
@@ -243,3 +247,6 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
         }
     }
 }
+
+
+

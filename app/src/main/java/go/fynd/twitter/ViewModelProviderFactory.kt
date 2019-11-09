@@ -3,6 +3,7 @@ package go.fynd.twitter
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import go.fynd.twitter.data.DataManager
+import go.fynd.twitter.ui.home.HomeVM
 import go.fynd.twitter.ui.login.TwitterLoginVM
 import go.fynd.twitter.utils.rx.SchedulerProvider
 
@@ -20,6 +21,10 @@ constructor(
 
         return when {
             modelClass.isAssignableFrom(TwitterLoginVM::class.java) -> TwitterLoginVM(
+                dataManager,
+                schedulerProvider
+            ) as T
+            modelClass.isAssignableFrom(HomeVM::class.java) -> HomeVM(
                 dataManager,
                 schedulerProvider
             ) as T

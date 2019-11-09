@@ -15,7 +15,6 @@ import javax.inject.Singleton
 class AppDataManager @Inject
 constructor(
     private val mDbHelper: DbHelper,
-    private val mApiHelper: ApiHelper,
     private val mPrefsHelper: PrefsHelper
 ) : DataManager {
 
@@ -31,9 +30,9 @@ constructor(
         return mDbHelper.addUser(mUserBean)
     }
 
-    override fun getTweets(): Single<List<TweetBean>> {
-        return mApiHelper.getTweets()
-    }
+//    override fun getTweets(): Single<List<TweetBean>> {
+//        return mApiHelper.getTweets()
+//    }
 
     override fun setConsumerKey(token: String) {
         mPrefsHelper.setConsumerKey(token)
