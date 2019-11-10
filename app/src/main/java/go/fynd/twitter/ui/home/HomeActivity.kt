@@ -36,7 +36,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeVM>(),
 
     override val layoutId: Int
         get() = R.layout.activity_home
-
+    private var PAGE = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = viewDataBinding
@@ -44,6 +44,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeVM>(),
         supportActionBar?.hide()
         setListeners()
         observeTweets()
+        viewModel.getTweets(PAGE)
     }
 
     private fun setListeners() {
@@ -53,7 +54,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeVM>(),
     private fun observeTweets() {
         viewModel.mListTweetBeanLiveData.observe(this, Observer {
             if (it != null) {
-                Log.e("@@@@@", "" + it[0].text)
+                for (i in 0 until it.size) {
+                    Log.e("@@@@", it[i].text)
+                }
             } else {
                 showMessage("Please login to continue")
             }

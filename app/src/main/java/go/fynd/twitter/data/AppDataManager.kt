@@ -2,9 +2,8 @@ package go.fynd.twitter.data
 
 import go.fynd.twitter.data.local.db.DbHelper
 import go.fynd.twitter.data.prefs.PrefsHelper
-import go.fynd.twitter.data.remote.ApiHelper
-import go.fynd.twitter.model.TweetBean
 import go.fynd.twitter.model.UserBean
+import go.fynd.twitter.model.tweet.TweetsBean
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
@@ -29,10 +28,6 @@ constructor(
     override fun addUser(mUserBean: UserBean): Completable {
         return mDbHelper.addUser(mUserBean)
     }
-
-//    override fun getTweets(): Single<List<TweetBean>> {
-//        return mApiHelper.getTweets()
-//    }
 
     override fun setConsumerKey(token: String) {
         mPrefsHelper.setConsumerKey(token)
@@ -64,5 +59,17 @@ constructor(
 
     override fun getUserSecretKey(): String {
         return mPrefsHelper.getUserSecretKey()
+    }
+
+    override fun getAllLocalTweets(): Maybe<List<TweetsBean>> {
+        return mDbHelper.getAllLocalTweets()
+    }
+
+    override fun addTweets(list: List<TweetsBean>): Completable {
+        return mDbHelper.addTweets(list)
+    }
+
+    override fun deleteLocalTweets(list: List<TweetsBean>): Completable {
+        return mDbHelper.deleteLocalTweets(list)
     }
 }

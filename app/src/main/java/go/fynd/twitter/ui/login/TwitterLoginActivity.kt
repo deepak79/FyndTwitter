@@ -88,7 +88,14 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
         viewModel.mUserBeanLiveData.observe(this, Observer {
             showHideSplash(false)
             if (it != null) {
+                CustomInterceptor.setSignInterceptor(
+                    TWITTER_CONSUMER_KEY,
+                    TWITTER_CONSUMER_SECRET,
+                    it.mAccessToken!!,
+                    it.mSecretKey!!
+                )
                 startActivity(Intent(this, HomeActivity::class.java))
+                finish()
             } else {
                 showMessage("Please login to continue")
             }

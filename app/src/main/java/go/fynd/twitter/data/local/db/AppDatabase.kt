@@ -6,21 +6,23 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import go.fynd.twitter.data.Converter
+import go.fynd.twitter.data.local.db.dao.TweetsDao
 import go.fynd.twitter.data.local.db.dao.UsersDao
 import go.fynd.twitter.model.UserBean
+import go.fynd.twitter.model.tweet.TweetsBean
 import go.fynd.twitter.utils.AppConstants
 
 
 @Database(
-    entities = [UserBean::class],
+    entities = [UserBean::class, TweetsBean::class],
     version = 1,
     exportSchema = false
 )
 @TypeConverters(Converter::class)
-abstract class AppDatabase : RoomDatabase(){
-    companion object{
+abstract class AppDatabase : RoomDatabase() {
+    companion object {
         @Volatile
-        private var INSTANCE : AppDatabase?=null
+        private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase {
             val tempInstance = INSTANCE
@@ -43,5 +45,7 @@ abstract class AppDatabase : RoomDatabase(){
         INSTANCE = null
     }
 
-    abstract fun usersDao() : UsersDao
+    abstract fun usersDao(): UsersDao
+
+    abstract fun tweetsDao(): TweetsDao
 }
