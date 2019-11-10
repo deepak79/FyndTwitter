@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -200,6 +201,7 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
             intent.putExtra(TwitterWebViewActivity.EXTRA_URL, mRequestToken.authenticationURL)
             startActivityForResult(intent, WEBVIEW_REQUEST_CODE)
         } catch (e: Exception) {
+            showHideSplash(false)
             showMessage(e.message)
         }
     }
@@ -226,6 +228,7 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
                 )
             )
         } catch (e: Exception) {
+            showHideSplash(false)
             showMessage(e.message)
         }
     }
@@ -233,7 +236,6 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == WEBVIEW_REQUEST_CODE) {
-            showHideSplash(false)
             try {
                 if (data != null && data.extras != null && data.hasExtra(URL_TWITTER_OAUTH_VERIFIER)) {
                     getAccessToken(data.extras?.getString(URL_TWITTER_OAUTH_VERIFIER)!!)
@@ -241,6 +243,7 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
             } catch (
                 e: java.lang.Exception
             ) {
+                showHideSplash(false)
                 showMessage(e.message)
             }
         }

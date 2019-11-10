@@ -7,10 +7,12 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import dagger.android.AndroidInjection
+import go.fynd.twitter.R
 import go.fynd.twitter.utils.NetworkUtils
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -78,9 +80,26 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
     fun showMessage(message: String?) {
         Toast.makeText(this, "" + message, Toast.LENGTH_LONG).show()
     }
+
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Exit Application")
+        builder.setMessage("Do you really want to exit?")
+        builder.setIcon(R.drawable.ic_exit)
+        builder.setPositiveButton("Yes") { dialogInterface, which ->
+            dialogInterface.dismiss()
+            finish()
+        }
+        builder.setNegativeButton("No") { dialogInterface, which ->
+            dialogInterface.dismiss()
+        }
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
 }
 
