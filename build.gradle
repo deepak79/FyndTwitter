@@ -36,6 +36,7 @@ ext{
     rxjava2Version = '2.1.9'
     rxandroidVersion = '2.1.1'
     lifecycleVersion = '2.1.0'
+    calligraphy = '2.3.0'
     roomDatabaseVersion = '2.2.1'
     recyclerViewVersion = '1.0.0'
     retrofit = '2.6.2'

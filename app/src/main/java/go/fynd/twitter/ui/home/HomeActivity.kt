@@ -82,7 +82,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeVM>(),
 
     private fun observeTweets() {
         viewModel.mListTweetBeanLiveData.observe(this, Observer {
-            if (it != null) {
+            if (it != null && it.size>0) {
                 viewModel.addTweets(it)
                 binding!!.tvMesssage.visibility = GONE
                 binding!!.rvTimeline.visibility = VISIBLE
@@ -98,7 +98,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeVM>(),
 
     private fun observeLocalTweets() {
         viewModel.mLocalListTweetBeanLiveData.observe(this, Observer {
-            if (it != null) {
+            if (it != null && it.size>0) {
                 binding!!.tvMesssage.visibility = GONE
                 binding!!.rvTimeline.visibility = VISIBLE
                 mTimeLineAdapter.addAll(it)

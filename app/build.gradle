@@ -75,14 +75,8 @@ dependencies {
     implementation "androidx.room:room-rxjava2:$rootProject.roomDatabaseVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomDatabaseVersion"
 
-    // debug database
-    debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
-
     //Fresco Image Loading
     implementation 'com.facebook.fresco:fresco:2.0.0'
-
-    //Picasso
-    implementation 'de.hdodenhof:circleimageview:3.0.1'
 
     //Runtime Permission
     implementation "com.karumi:dexter:$rootProject.permissions"
@@ -96,6 +90,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.14.0'
     implementation 'se.akerfeldt:okhttp-signpost:1.1.0'
     implementation 'oauth.signpost:signpost-core:1.2.1.2'
+
+    //Custom font
+    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphy"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

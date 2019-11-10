@@ -7,6 +7,7 @@ import com.facebook.drawee.backends.pipeline.Fresco
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import go.fynd.twitter.di.component.DaggerAppComponent
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import javax.inject.Inject
 
 
@@ -28,6 +29,12 @@ class App : Application(), HasActivityInjector {
             .application(this)
             .build()
             .inject(this)
+        CalligraphyConfig.initDefault(
+            CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/lato.ttf")
+                .setFontAttrId(uk.co.chrisjenx.calligraphy.R.attr.fontPath)
+                .build()
+        )
     }
 
 }

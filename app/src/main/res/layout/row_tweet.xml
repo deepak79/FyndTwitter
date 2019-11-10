@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
     android:foreground="?android:attr/selectableItemBackground">
 
     <androidx.constraintlayout.widget.Guideline
@@ -18,8 +17,6 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="15dp"
-        app:civ_border_color="#fff"
-        app:civ_border_width="2dp"
         app:layout_constraintEnd_toStartOf="@id/gl_vert_30"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,72 +24,90 @@
         app:roundAsCircle="true"
         app:roundedCornerRadius="2dp" />
 
-    <TextView
-        android:id="@+id/tv_user_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:ellipsize="end"
-        android:gravity="left"
-        android:maxLength="20"
-        android:maxLines="1"
-        android:text="Aaron Paul"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/tv_user_id"
-        app:layout_constraintStart_toEndOf="@id/gl_vert_30"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_user_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="aaroanpaul"
-        android:textColor="@color/divider"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
-        app:layout_constraintEnd_toStartOf="@id/tv_time"
-        app:layout_constraintStart_toEndOf="@id/tv_user_name"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="8m"
-        android:textColor="@color/divider"
-        android:textSize="9sp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
+        app:layout_constraintBottom_toTopOf="@id/tv_tweet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_user_id"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/gl_vert_30"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:text="Aaron Paul"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_tweet"
+            app:layout_constraintEnd_toStartOf="@id/tv_user_id"
+            app:layout_constraintStart_toEndOf="@id/gl_vert_30"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_user_id"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="aaroanpaul"
+            android:textColor="@color/divider"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_tweet"
+            app:layout_constraintEnd_toStartOf="@id/tv_time"
+            app:layout_constraintStart_toEndOf="@id/tv_user_name"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:text="8m"
+            android:textColor="@color/divider"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_tweet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_user_id"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_tweet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:paddingStart="5dp"
         android:text="Uberfacts Bitfield is the same of a village in England, Yeah bitch"
         android:textColor="@color/dark_gray"
-        android:textSize="12sp"
-        android:paddingStart="5dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@id/img_tweet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/gl_vert_30"
-        app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+        app:layout_constraintTop_toBottomOf="@id/ll" />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/img_tweet"
@@ -113,7 +128,8 @@
         android:src="@drawable/ic_share"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_share"
-        app:layout_constraintStart_toEndOf="@id/gl_vert_30" />
+        app:layout_constraintStart_toEndOf="@id/gl_vert_30"
+        app:layout_constraintTop_toTopOf="@id/tv_share" />
 
     <TextView
         android:id="@+id/tv_share"
@@ -134,7 +150,8 @@
         android:src="@drawable/ic_retweet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_retweet"
-        app:layout_constraintStart_toEndOf="@id/tv_share" />
+        app:layout_constraintStart_toEndOf="@id/tv_share"
+        app:layout_constraintTop_toTopOf="@id/tv_retweet" />
 
     <TextView
         android:id="@+id/tv_retweet"
@@ -155,7 +172,8 @@
         android:src="@drawable/ic_star"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_star"
-        app:layout_constraintStart_toEndOf="@id/tv_retweet" />
+        app:layout_constraintStart_toEndOf="@id/tv_retweet"
+        app:layout_constraintTop_toTopOf="@id/tv_star" />
 
     <TextView
         android:id="@+id/tv_star"
@@ -176,5 +194,6 @@
         android:src="@drawable/ic_options"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_star" />
+        app:layout_constraintStart_toStartOf="@id/tv_star"
+        app:layout_constraintTop_toTopOf="@id/tv_star" />
 </androidx.constraintlayout.widget.ConstraintLayout>

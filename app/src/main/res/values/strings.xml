@@ -3,12 +3,6 @@
 
     <string name="permission">You must allow all permissions to proceed!</string>
     <string name="nointernet">Please make sure your connected to internet</string>
-    <string name="no_users">Loading Users..</string>
-    <string name="add_user">Add User</string>
-    <string name="cancel">Cancel</string>
-    <string name="delete_user">Delete User</string>
-
-
     <string name="twitter_callback">twittersdk://</string>
     <string name="twitter_oauth_verifier">oauth_verifier</string>
     <string name="twitter_api_key">psWd5beimPTZzFImVt9cQa0mu</string>

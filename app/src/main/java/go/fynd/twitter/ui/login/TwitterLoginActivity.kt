@@ -86,7 +86,6 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
 
     private fun observeIsLoggedIn() {
         viewModel.mUserBeanLiveData.observe(this, Observer {
-            showHideSplash(false)
             if (it != null) {
                 CustomInterceptor.setSignInterceptor(
                     TWITTER_CONSUMER_KEY,
@@ -97,6 +96,7 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
                 startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             } else {
+                showHideSplash(false)
                 showMessage("Please login to continue")
             }
         })
@@ -145,8 +145,12 @@ class TwitterLoginActivity : BaseActivity<ActivityTwitterLoginBinding, TwitterLo
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.btn_login -> {
-                showHideSplash(true)
-                doTwitterLogin()
+                if(isNetworkConnected){
+                    showHideSplash(true)
+                    doTwitterLogin()
+                }else{
+                    showMessage(getString(R.string.nointernet))
+                }
             }
         }
     }
