@@ -5,25 +5,25 @@ import com.google.gson.annotations.SerializedName
 
 data class Media(
     @SerializedName("id")
-    val id: Long = 0,
+    val id: Long? = 0,
     @SerializedName("id_str")
-    val idStr: String = "",
+    val idStr: String? = "",
     @SerializedName("indices")
-    val indices: List<Int> = listOf(),
+    val indices: List<Int>? = listOf(),
     @SerializedName("media_url")
-    val mediaUrl: String = "",
+    val mediaUrl: String? = "",
     @SerializedName("media_url_https")
-    val mediaUrlHttps: String = "",
+    val mediaUrlHttps: String? = "",
     @SerializedName("url")
-    val url: String = "",
+    val url: String? = "",
     @SerializedName("display_url")
-    val displayUrl: String = "",
+    val displayUrl: String? = "",
     @SerializedName("expanded_url")
-    val expandedUrl: String = "",
+    val expandedUrl: String? = "",
     @SerializedName("type")
-    val type: String = "",
+    val type: String? = "",
     @SerializedName("sizes")
-    val sizes: Sizes = Sizes(),
+    val sizes: Sizes? = Sizes(),
     @SerializedName("features")
-    val features: Features = Features()
+    val features: Features? = Features()
 )

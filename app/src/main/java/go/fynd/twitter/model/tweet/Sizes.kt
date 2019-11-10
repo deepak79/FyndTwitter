@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Sizes(
     @SerializedName("thumb")
-    val thumb: Thumb = Thumb(),
+    val thumb: Thumb? = Thumb(),
     @SerializedName("large")
-    val large: Large = Large(),
+    val large: Large? = Large(),
     @SerializedName("medium")
-    val medium: Medium = Medium(),
+    val medium: Medium? = Medium(),
     @SerializedName("small")
-    val small: Small = Small()
+    val small: Small? = Small()
 )

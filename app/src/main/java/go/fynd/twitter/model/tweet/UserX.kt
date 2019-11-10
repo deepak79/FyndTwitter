@@ -5,91 +5,91 @@ import com.google.gson.annotations.SerializedName
 
 data class UserX(
     @SerializedName("id")
-    val id: Long = 0,
+    val id: Long? = 0,
     @SerializedName("id_str")
-    val idStr: String = "",
+    val idStr: String? = "",
     @SerializedName("name")
-    val name: String = "",
+    val name: String? = "",
     @SerializedName("screen_name")
-    val screenName: String = "",
+    val screenName: String? = "",
     @SerializedName("location")
-    val location: String = "",
+    val location: String? = "",
     @SerializedName("description")
-    val description: String = "",
+    val description: String? = "",
     @SerializedName("url")
-    val url: String = "",
+    val url: String? = "",
     @SerializedName("entities")
-    val entities: EntitiesXXX = EntitiesXXX(),
+    val entities: EntitiesXXX? = EntitiesXXX(),
     @SerializedName("protected")
-    val `protected`: Boolean = false,
+    val `protected`: Boolean? = false,
     @SerializedName("followers_count")
-    val followersCount: Int = 0,
+    val followersCount: Int? = 0,
     @SerializedName("friends_count")
-    val friendsCount: Int = 0,
+    val friendsCount: Int? = 0,
     @SerializedName("listed_count")
-    val listedCount: Int = 0,
+    val listedCount: Int? = 0,
     @SerializedName("created_at")
-    val createdAt: String = "",
+    val createdAt: String? = "",
     @SerializedName("favourites_count")
-    val favouritesCount: Int = 0,
+    val favouritesCount: Int? = 0,
     @SerializedName("utc_offset")
-    val utcOffset: Any = Any(),
+    val utcOffset: Any? = Any(),
     @SerializedName("time_zone")
-    val timeZone: Any = Any(),
+    val timeZone: Any? = Any(),
     @SerializedName("geo_enabled")
-    val geoEnabled: Boolean = false,
+    val geoEnabled: Boolean? = false,
     @SerializedName("verified")
-    val verified: Boolean = false,
+    val verified: Boolean? = false,
     @SerializedName("statuses_count")
-    val statusesCount: Int = 0,
+    val statusesCount: Int? = 0,
     @SerializedName("lang")
-    val lang: Any = Any(),
+    val lang: Any? = Any(),
     @SerializedName("contributors_enabled")
-    val contributorsEnabled: Boolean = false,
+    val contributorsEnabled: Boolean? = false,
     @SerializedName("is_translator")
-    val isTranslator: Boolean = false,
+    val isTranslator: Boolean? = false,
     @SerializedName("is_translation_enabled")
-    val isTranslationEnabled: Boolean = false,
+    val isTranslationEnabled: Boolean? = false,
     @SerializedName("profile_background_color")
-    val profileBackgroundColor: String = "",
+    val profileBackgroundColor: String? = "",
     @SerializedName("profile_background_image_url")
-    val profileBackgroundImageUrl: String = "",
+    val profileBackgroundImageUrl: String? = "",
     @SerializedName("profile_background_image_url_https")
-    val profileBackgroundImageUrlHttps: String = "",
+    val profileBackgroundImageUrlHttps: String? = "",
     @SerializedName("profile_background_tile")
-    val profileBackgroundTile: Boolean = false,
+    val profileBackgroundTile: Boolean? = false,
     @SerializedName("profile_image_url")
-    val profileImageUrl: String = "",
+    val profileImageUrl: String? = "",
     @SerializedName("profile_image_url_https")
-    val profileImageUrlHttps: String = "",
+    val profileImageUrlHttps: String? = "",
     @SerializedName("profile_banner_url")
-    val profileBannerUrl: String = "",
+    val profileBannerUrl: String? = "",
     @SerializedName("profile_link_color")
-    val profileLinkColor: String = "",
+    val profileLinkColor: String? = "",
     @SerializedName("profile_sidebar_border_color")
-    val profileSidebarBorderColor: String = "",
+    val profileSidebarBorderColor: String? = "",
     @SerializedName("profile_sidebar_fill_color")
-    val profileSidebarFillColor: String = "",
+    val profileSidebarFillColor: String? = "",
     @SerializedName("profile_text_color")
-    val profileTextColor: String = "",
+    val profileTextColor: String? = "",
     @SerializedName("profile_use_background_image")
-    val profileUseBackgroundImage: Boolean = false,
+    val profileUseBackgroundImage: Boolean? = false,
     @SerializedName("has_extended_profile")
-    val hasExtendedProfile: Boolean = false,
+    val hasExtendedProfile: Boolean? = false,
     @SerializedName("default_profile")
-    val defaultProfile: Boolean = false,
+    val defaultProfile: Boolean? = false,
     @SerializedName("default_profile_image")
-    val defaultProfileImage: Boolean = false,
+    val defaultProfileImage: Boolean? = false,
     @SerializedName("can_media_tag")
-    val canMediaTag: Boolean = false,
+    val canMediaTag: Boolean? = false,
     @SerializedName("followed_by")
-    val followedBy: Boolean = false,
+    val followedBy: Boolean? = false,
     @SerializedName("following")
-    val following: Boolean = false,
+    val following: Boolean? = false,
     @SerializedName("follow_request_sent")
-    val followRequestSent: Boolean = false,
+    val followRequestSent: Boolean? = false,
     @SerializedName("notifications")
-    val notifications: Boolean = false,
+    val notifications: Boolean? = false,
     @SerializedName("translator_type")
-    val translatorType: String = ""
+    val translatorType: String? = ""
 )

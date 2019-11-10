@@ -24,9 +24,9 @@ object NetworkUtils {
             activeNetworkInfo = connectivityManager.activeNetworkInfo
         }
         val flag = activeNetworkInfo != null && activeNetworkInfo.isConnected
-        if (!flag) {
-            Toast.makeText(context, R.string.nointernet, Toast.LENGTH_SHORT).show()
-        }
+//        if (!flag) {
+//            Toast.makeText(context, R.string.nointernet, Toast.LENGTH_SHORT).show()
+//        }
         return flag
     }
 }

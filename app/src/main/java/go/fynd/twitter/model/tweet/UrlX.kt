@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class UrlX(
     @SerializedName("urls")
-    val urls: List<UrlXX> = listOf()
+    val urls: List<UrlXX>? = listOf()
 )

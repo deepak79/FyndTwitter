@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class Features(
     @SerializedName("all")
-    val all: All = All(),
+    val all: All? = All(),
     @SerializedName("large")
-    val large: LargeX = LargeX(),
+    val large: LargeX? = LargeX(),
     @SerializedName("medium")
-    val medium: MediumX = MediumX(),
+    val medium: MediumX? = MediumX(),
     @SerializedName("small")
-    val small: SmallX = SmallX(),
+    val small: SmallX? = SmallX(),
     @SerializedName("orig")
-    val orig: Orig = Orig()
+    val orig: Orig? = Orig()
 )

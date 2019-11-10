@@ -61,15 +61,15 @@ constructor(
         return mPrefsHelper.getUserSecretKey()
     }
 
-    override fun getAllLocalTweets(): Maybe<List<TweetsBean>> {
+    override fun getAllLocalTweets(): Maybe<MutableList<TweetsBean>?> {
         return mDbHelper.getAllLocalTweets()
     }
 
-    override fun addTweets(list: List<TweetsBean>): Completable {
+    override fun addTweets(list: MutableList<TweetsBean>?): Completable {
         return mDbHelper.addTweets(list)
     }
 
-    override fun deleteLocalTweets(list: List<TweetsBean>): Completable {
+    override fun deleteLocalTweets(list: MutableList<TweetsBean>): Completable {
         return mDbHelper.deleteLocalTweets(list)
     }
 }

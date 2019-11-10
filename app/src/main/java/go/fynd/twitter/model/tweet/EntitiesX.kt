@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class EntitiesX(
     @SerializedName("url")
-    val url: UrlX = UrlX(),
+    val url: UrlX? = UrlX(),
     @SerializedName("description")
-    val description: Description = Description()
+    val description: Description? = Description()
 )

@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Tag(
     @SerializedName("type")
-    val type: String = "",
+    val type: String? = "",
     @SerializedName("user_id")
-    val userId: String = "",
+    val userId: String? = "",
     @SerializedName("screen_name")
-    val screenName: String = "",
+    val screenName: String? = "",
     @SerializedName("name")
-    val name: String = ""
+    val name: String? = ""
 )

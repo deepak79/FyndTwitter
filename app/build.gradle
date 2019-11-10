@@ -82,10 +82,7 @@ dependencies {
     implementation 'com.facebook.fresco:fresco:2.0.0'
 
     //Picasso
-    implementation "com.squareup.picasso:picasso:$rootProject.picasso"
-
-    //Zoom Imageview
-    implementation "com.jsibbold:zoomage:$rootProject.zoomImage"
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
 
     //Runtime Permission
     implementation "com.karumi:dexter:$rootProject.permissions"
@@ -94,7 +91,7 @@ dependencies {
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2'
 
-    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
 
     implementation 'com.squareup.okhttp3:logging-interceptor:3.14.0'
     implementation 'se.akerfeldt:okhttp-signpost:1.1.0'

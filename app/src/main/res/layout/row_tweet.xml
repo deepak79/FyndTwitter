@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_vert_30"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_profile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        app:civ_border_color="#fff"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toStartOf="@id/gl_vert_30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:placeholderImage="@mipmap/ic_launcher"
+        app:roundAsCircle="true"
+        app:roundedCornerRadius="2dp" />
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:text="Aaron Paul"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_user_id"
+        app:layout_constraintStart_toEndOf="@id/gl_vert_30"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="aaroanpaul"
+        android:textColor="@color/divider"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
+        app:layout_constraintEnd_toStartOf="@id/tv_time"
+        app:layout_constraintStart_toEndOf="@id/tv_user_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="8m"
+        android:textColor="@color/divider"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_user_id"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_tweet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Uberfacts Bitfield is the same of a village in England, Yeah bitch"
+        android:textColor="@color/dark_gray"
+        android:textSize="12sp"
+        android:paddingStart="5dp"
+        app:layout_constraintBottom_toTopOf="@id/img_tweet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/gl_vert_30"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_tweet"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/img_star"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/gl_vert_30"
+        app:layout_constraintTop_toBottomOf="@id/tv_tweet" />
+
+    <ImageView
+        android:id="@+id/img_share"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/ic_share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_share"
+        app:layout_constraintStart_toEndOf="@id/gl_vert_30" />
+
+    <TextView
+        android:id="@+id/tv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="62"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img_retweet"
+        app:layout_constraintStart_toEndOf="@id/img_share" />
+
+    <ImageView
+        android:id="@+id/img_retweet"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/ic_retweet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_retweet"
+        app:layout_constraintStart_toEndOf="@id/tv_share" />
+
+    <TextView
+        android:id="@+id/tv_retweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="62"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img_star"
+        app:layout_constraintStart_toEndOf="@id/img_retweet" />
+
+    <ImageView
+        android:id="@+id/img_star"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/ic_star"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_star"
+        app:layout_constraintStart_toEndOf="@id/tv_retweet" />
+
+    <TextView
+        android:id="@+id/tv_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="62"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img_options"
+        app:layout_constraintStart_toEndOf="@id/img_star" />
+
+    <ImageView
+        android:id="@+id/img_options"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/ic_options"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_star" />
+</androidx.constraintlayout.widget.ConstraintLayout>

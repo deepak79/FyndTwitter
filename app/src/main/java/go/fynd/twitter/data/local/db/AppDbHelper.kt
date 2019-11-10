@@ -25,15 +25,15 @@ constructor(
         return Completable.fromAction { mAppDatabase.usersDao().addUser(mUserBean) }
     }
 
-    override fun getAllLocalTweets(): Maybe<List<TweetsBean>> {
+    override fun getAllLocalTweets(): Maybe<MutableList<TweetsBean>?> {
         return mAppDatabase.tweetsDao().getAllLocalTweets()
     }
 
-    override fun addTweets(list: List<TweetsBean>): Completable {
+    override fun addTweets(list: MutableList<TweetsBean>?): Completable {
         return Completable.fromAction { mAppDatabase.tweetsDao().addTweets(list) }
     }
 
-    override fun deleteLocalTweets(list: List<TweetsBean>): Completable {
+    override fun deleteLocalTweets(list: MutableList<TweetsBean>): Completable {
         return Completable.fromAction { mAppDatabase.tweetsDao().deleteLocalTweets(list) }
     }
 }

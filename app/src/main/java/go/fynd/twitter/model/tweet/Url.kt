@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Url(
     @SerializedName("url")
-    val url: String = "",
+    val url: String? = "",
     @SerializedName("expanded_url")
-    val expandedUrl: String = "",
+    val expandedUrl: String? = "",
     @SerializedName("display_url")
-    val displayUrl: String = "",
+    val displayUrl: String? = "",
     @SerializedName("indices")
-    val indices: List<Int> = listOf()
+    val indices: List<Int>? = listOf()
 )

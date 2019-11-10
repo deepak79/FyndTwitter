@@ -31,7 +31,6 @@ ext{
     debugDBVersion = '1.0.6'
     permissions = '6.0.0'
     gsonVersion = '2.8.2'
-    picasso = '2.71828'
     zoomImage = '1.2.0'
     dagger2Version = '2.21'
     rxjava2Version = '2.1.9'

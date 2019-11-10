@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class All(
     @SerializedName("tags")
-    val tags: List<Tag> = listOf()
+    val tags: List<Tag>? = listOf()
 )

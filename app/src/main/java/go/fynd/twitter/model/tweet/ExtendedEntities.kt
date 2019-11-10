@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class ExtendedEntities(
     @SerializedName("media")
-    val media: List<Media> = listOf()
+    val media: List<Media>? = listOf()
 )

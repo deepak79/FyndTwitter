@@ -18,7 +18,7 @@ interface ApiHelper {
     fun getTweets(
         @Query("page") page: String
         , @Query("count") count: String
-    ): Single<List<TweetsBean>>
+    ): Single<MutableList<TweetsBean>?>
 
     companion object {
         fun create(): ApiHelper {

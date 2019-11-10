@@ -12,9 +12,9 @@ interface DbHelper {
 
     fun addUser(mUserBean: UserBean): Completable
 
-    fun getAllLocalTweets(): Maybe<List<TweetsBean>>
+    fun getAllLocalTweets(): Maybe<MutableList<TweetsBean>?>
 
-    fun addTweets(list: List<TweetsBean>):Completable
+    fun addTweets(list: MutableList<TweetsBean>?):Completable
 
-    fun deleteLocalTweets(list: List<TweetsBean>):Completable
+    fun deleteLocalTweets(list: MutableList<TweetsBean>):Completable
 }

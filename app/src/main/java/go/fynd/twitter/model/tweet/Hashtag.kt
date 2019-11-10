@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Hashtag(
     @SerializedName("text")
-    val text: String = "",
+    val text: String? = "",
     @SerializedName("indices")
-    val indices: List<Int> = listOf()
+    val indices: List<Int>? = listOf()
 )

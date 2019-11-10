@@ -5,53 +5,53 @@ import com.google.gson.annotations.SerializedName
 
 data class QuotedStatus(
     @SerializedName("created_at")
-    val createdAt: String = "",
+    val createdAt: String? = "",
     @SerializedName("id")
-    val id: Long = 0,
+    val id: Long? = 0,
     @SerializedName("id_str")
-    val idStr: String = "",
+    val idStr: String? = "",
     @SerializedName("text")
-    val text: String = "",
+    val text: String? = "",
     @SerializedName("truncated")
-    val truncated: Boolean = false,
+    val truncated: Boolean? = false,
     @SerializedName("entities")
-    val entities: EntitiesXX = EntitiesXX(),
+    val entities: EntitiesXX? = EntitiesXX(),
     @SerializedName("source")
-    val source: String = "",
+    val source: String? = "",
     @SerializedName("in_reply_to_status_id")
-    val inReplyToStatusId: Any = Any(),
+    val inReplyToStatusId: Any? = Any(),
     @SerializedName("in_reply_to_status_id_str")
-    val inReplyToStatusIdStr: Any = Any(),
+    val inReplyToStatusIdStr: Any? = Any(),
     @SerializedName("in_reply_to_user_id")
-    val inReplyToUserId: Any = Any(),
+    val inReplyToUserId: Any? = Any(),
     @SerializedName("in_reply_to_user_id_str")
-    val inReplyToUserIdStr: Any = Any(),
+    val inReplyToUserIdStr: Any? = Any(),
     @SerializedName("in_reply_to_screen_name")
-    val inReplyToScreenName: Any = Any(),
+    val inReplyToScreenName: Any? = Any(),
     @SerializedName("user")
-    val user: UserX = UserX(),
+    val user: UserX? = UserX(),
     @SerializedName("geo")
-    val geo: Any = Any(),
+    val geo: Any? = Any(),
     @SerializedName("coordinates")
-    val coordinates: Any = Any(),
+    val coordinates: Any? = Any(),
     @SerializedName("place")
-    val place: Any = Any(),
+    val place: Any? = Any(),
     @SerializedName("contributors")
-    val contributors: Any = Any(),
+    val contributors: Any? = Any(),
     @SerializedName("is_quote_status")
-    val isQuoteStatus: Boolean = false,
+    val isQuoteStatus: Boolean? = false,
     @SerializedName("retweet_count")
-    val retweetCount: Int = 0,
+    val retweetCount: Int? = 0,
     @SerializedName("favorite_count")
-    val favoriteCount: Int = 0,
+    val favoriteCount: Int? = 0,
     @SerializedName("favorited")
-    val favorited: Boolean = false,
+    val favorited: Boolean? = false,
     @SerializedName("retweeted")
-    val retweeted: Boolean = false,
+    val retweeted: Boolean? = false,
     @SerializedName("possibly_sensitive")
-    val possiblySensitive: Boolean = false,
+    val possiblySensitive: Boolean? = false,
     @SerializedName("possibly_sensitive_appealable")
-    val possiblySensitiveAppealable: Boolean = false,
+    val possiblySensitiveAppealable: Boolean? = false,
     @SerializedName("lang")
-    val lang: String = ""
+    val lang: String? = ""
 )

@@ -1,22 +1,19 @@
 package go.fynd.twitter.data.local.db.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import go.fynd.twitter.model.tweet.TweetsBean
 import io.reactivex.Maybe
 
 @Dao
 interface TweetsDao {
     @Query("SELECT * FROM TweetsBean")
-    fun getAllLocalTweets(): Maybe<List<TweetsBean>>
+    fun getAllLocalTweets(): Maybe<MutableList<TweetsBean>?>
 
-    @Insert
-    fun addTweets(list: List<TweetsBean>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addTweets(list: MutableList<TweetsBean>?)
 
     @Delete
-    fun deleteLocalTweets(list: List<TweetsBean>)
+    fun deleteLocalTweets(list: MutableList<TweetsBean>?)
 
     @Query("DELETE FROM TweetsBean")
     fun nukeTable()
